@@ -1,0 +1,71 @@
+extends layout
+
+block content
+  if authorised
+    p Welcome #{fname}
+     div
+  form(action='/survey',method='post')
+    div(data-role='fieldcontain')
+      fieldset(data-role='controlgroup')
+        label(for='blueent')
+        strong QA). Where did you hear about BluEnt?
+        br
+        br
+        div
+           input#blueent-hear(type='radio',value='BluEnt HR Call',name='blueent_hear', checked="checked") 
+           | BluEnt HR Call
+        div
+           input#blueent-hear(type='radio',value='Naukri.com',name='blueent_hear') 
+           | Naukri.com
+        div
+           input#blueent-hear(type='radio',value='Friend referred',name='blueent_hear') 
+           | Friend referred
+    div(data-role='fieldcontain')
+      fieldset(data-role='controlgroup')
+        label(for='php')
+         strong QB). What did you rate yourself in PHP out of 10(1 is min and 10 is max)?
+            br
+            br
+           select#rate-php(id="rate-php", name="php_rate")
+           option(value='1') 1
+           option(value='2') 2
+           option(value='3') 3
+           option(value='4') 4
+           option(value='5') 5
+           option(value='6') 6
+           option(value='7') 7
+           option(value='8') 8
+           option(value='9') 9
+           option(value='10') 10
+     div(data-role='fieldcontain')
+      fieldset(data-role='controlgroup')
+        label(for='php_frameworks')
+        strong QC). Which PHP Framework(s) have you worked on?
+         br
+         br
+        div
+           input#php-framework(type='checkbox',value='Code Igniter',name='php_framework' , checked="checked", required='required') 
+           | Code Igniter
+        div
+           input#php-framework(type='checkbox',value='Cake PHP',name='php_framework') 
+           | Cake PHP
+        div
+           input#php-framework(type='checkbox',value='Laravel',name='php_framework') 
+           | Laravel​
+        div
+           input#php-framework(type='checkbox',value='Yii',name='php_framework') 
+           | Yii
+        div
+           input#php-framework(type='checkbox',value='Zend',name='php_framework') 
+           | Zend
+    div(data-role='fieldcontain')   
+      button(type='submit') Save
+
+  
+else
+    p Don't have an account yet? 
+      a(href='/register') Register
+    p Already have an account? 
+      a(href='/login') Login
+
+    

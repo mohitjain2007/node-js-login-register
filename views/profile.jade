@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  if authorised
+    p Welcome #{fname} | 
+      a(href="/") Dashboard | 
+      a(href="/exit") Log Out
+    if typeof surveyData != 'undefined'
+    p 
+    strong QA). Where did you hear about BluEnt?
+    p
+    strong ANS: 
+    = surveyData.blueent_hear
+    p 
+    strong QB). What did you rate yourself in PHP out of 10(1 is min and 10 is max)?
+    p
+    strong ANS: 
+    = surveyData.php_rate
+    p 
+    strong QC). Which PHP Framework(s) have you worked on?
+    p
+    strong ANS: 
+    = surveyData.php_framework
+  else
+    p Don't have an account yet? 
+      a(href='/register') Register
+    p Already have an account? 
+      a(href='/login') Login
